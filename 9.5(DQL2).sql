@@ -171,22 +171,3 @@ ELSE 'D'
 END AS 工资级别
 FROM employees;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
