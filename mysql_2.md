@@ -163,6 +163,12 @@
 > FROM employees </br>
 > WHERE commission_pct IS NOT NULL;
 
++ **datediff(日期，日期)**： 相差天数
+
+> SELECT DATEDIFF('2021-1-25','2021-9-5');
+>
+> SELECT DATEDIFF(MAX(hiredate),MIN(hiredate)) FROM employees;	
+
 </br>
 
 4.其他函数
