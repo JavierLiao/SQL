@@ -183,6 +183,14 @@ INNOB存储引擎下，效率差不多
 
 1.等值连接
 
+> SELECT **查询列表**</br>
+> FROM **table1 别名, table2 别名**</br>
+> WHERE **table1.key = table2.key**</br>
+> [AND **筛选条件**]</br>
+> [GROUP BY **分组字段**]</br>
+> [Having **分组后筛选条件**]</br>
+> [ORDER BY **排序字段**];
+
 特点：
 
 + 多表等值连接结果为多表的交集部分
