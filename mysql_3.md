@@ -248,5 +248,20 @@ INNOB存储引擎下，效率差不多
 
 </br>
 
-2.非等值连接
+2. 非等值连接
+
+> e.g 查询员工的工资和工资级别</br>
+> select employee_id,salary,grade_level</br>
+> from employees e, job_grades j</br>
+> where salary between lowest_sal and highest_sal</br>
+> and grade_level='A';
+
+</br>
+
+3. 自连接
+
+> e.g 查询员工名和上级的名称</br>
+> select e.employee_id,e.last_name,m.employee_id,m.last_name</br>
+> from employees e, employees m</br>
+> where e.manager_id = m.employee_id;
 
