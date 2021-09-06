@@ -175,7 +175,9 @@
 
 > SELECT VERSION();</br>
 > SELECT DATABASE();</br>
-> SELECT USER();
+> SELECT USER();</br>
+> SELECT PASSWORD('str');(8.0废弃)</br>
+> SELECT MD5('str')
 
 </br>
 
