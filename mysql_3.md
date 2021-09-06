@@ -183,5 +183,70 @@ INNOB存储引擎下，效率差不多
 
 1.等值连接
 
+特点：
 
++ 多表等值连接结果为多表的交集部分
+
++ n表连接，至少需要n-1个连接条件
+
++ 一般为表起别名
+
++ 可以搭配所有查询子句使用，如排序，分组，筛选
+
+
+> e.g1 查询女神名和对应的男神名</br>
+> select `name`,boyName </br>
+> from beauty, boys</br>
+> where beauty.boyfriend_id = boys.id;
+>  
+> e.g2 查询员工名的对应的部门名</br>
+> select last_name,department_name</br>
+> from employees, departments</br>
+> where employees.department_id = departments.department_id;
+
+> e.g3 查询员工名、工种号、工种名(为表起别名,起别名后不能使用原表名)</br>
+> select last_name, e.job_id, job_title</br>
+> from employees as e, jobs as j</br>
+> where e.job_id = j.job_id;
+
+> e.g4 查询有奖金的员工及其部门（加筛选条件）</br>
+> select last_name,department_name</br>
+> from employees as e, departments as d</br>
+> where e.department_id = d.department_id</br>
+> and e.commission_pct is not null;
+> 
+> e.g5 查询城市名中第二个字符为o的部门和城市名</br>
+> select department_name,city</br>
+> from departments as d,locations as l</br>
+> where d.location_id=l.location_id</br>
+> and l.city like '\_o%';
+
+> e.g6 查询每个城市的部门个数（加分组条件）</br>
+> select city 城市,count(\*) 部门个数</br>
+> from departments as d, locations as l</br>
+> where d.location_id = l.location_id</br>
+> group by l.city;
+
+> e.g7 查询有奖金的每个部门的部门名和部门的领导编号以及该部门的最低工资</br>
+> select department_name 部门名, d.manager_id 管理编号, min(salary)</br>
+> from employees e, departments d</br>
+> where e.department_id = d.department_id</br>
+> and commission_pct is not null</br>
+> group by department_name;
+
+> e.g8 查询每工种的工种名和员工的个数，并且按员工个数降序(加排序条件)</br>
+> select job_title 工种, count(\*) 员工个数</br>
+> from employees e, jobs j</br>
+> where e.job_id = j.job_id</br>
+> group by job_title</br>
+> order by 员工个数 desc;
+
+> e.g9 查询员工名，部门名和坐在的城市名(三表连接)</br>
+> select last_name, department_name, city</br>
+> from employees e, departments d, locations l</br>
+> where e.department_id = d.department_id and d.location_id = l.location_id
+
+</br>
+
+2.非等值连接
 
